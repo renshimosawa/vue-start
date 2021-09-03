@@ -8,7 +8,65 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <div id="app" class="container">
+      <table id="app">
+        <tr>
+            <td colspan="3"><input type="text" v-model="output"></td>
+            <td>
+              <button value="C" v-on:click="calc('C')">C</button>
+            </td>
+        </tr>
+        <tr v-for="row in items" class='bottom'>
+          <td v-for="item in row">
+            <button v-on:click="calc(item)">{{ item }}</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <script src="script.js"></script>
+    <style>
+      .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      @media screen and (min-width:600px){
+        .container{
+          height:100vh;
+        }
+      }
+      input{
+        width: 230px;
+        height: 80px;
+        font-size: 30px;
+        background-color:rgb(241, 249, 255);
+        border: none;
+        padding-left: 10px;
+      }
+      button{
+        background-color:rgb(245, 245, 245);
+        width: 80px;
+        height: 80px;
+        font-size: 25px;
+        border: none;
+      }
+      @media screen and (max-width:600px){
+      table{
+        width: 100vw;
+      }
+      td{
+        height:19vh;
+        width: 20%;
+      }
+      input{
+        height:100%;
+        width: 95%;
+      }
+      button{
+        height:100%;
+        width: 100%;
+      }
+      }
+    </style>
   </body>
 </html>
